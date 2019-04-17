@@ -24,16 +24,16 @@ router.get('/', function(req, res, next) {
       console.log(data);
       var result = {
         "status": "200",
-        "message": "获取成功",
+        "msg": "获取成功",
       };
-      result.userinfo = data
+      result.list = data
       var _callback = req.query.jsonpCallback;
       res.type('text/javascript');
       res.send(_callback + '(' + JSON.stringify(result) + ')');
+      // connection.end();
     }
   })
-  // res.send('dsadsadsadsa');
 });
 
+
 module.exports = router;
-//test
