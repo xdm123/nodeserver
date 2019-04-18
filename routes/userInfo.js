@@ -3,7 +3,7 @@ var router = express.Router();
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host: 'localhost',
+  host: '139.199.111.86',
   user: 'root',
   password : '123456789',
   database : 'user'
@@ -27,10 +27,7 @@ router.get('/', function(req, res, next) {
         "msg": "获取成功",
       };
       result.list = data
-      var _callback = req.query.jsonpCallback;
-      res.type('text/javascript');
-      res.send(_callback + '(' + JSON.stringify(result) + ')');
-      // connection.end();
+      res.send(JSON.parse(JSON.stringify(result)));
     }
   })
 });

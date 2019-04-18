@@ -3,13 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors');
 var app = express();
 
 //中间件处理post请求
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+//cors处理跨域请求
+app.use(cors());
 
 var userInfoRouter = require('./routes/userInfo');
 var setInfoRouter = require('./routes/setInfo');
