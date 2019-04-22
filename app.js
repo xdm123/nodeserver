@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(cors());
 
 var userInfoRouter = require('./routes/userInfo');
-var setInfoRouter = require('./routes/setInfo');
-
+var insertUserRouter = require('./routes/insertUser');
+var updateUseInfoRouter = require('./routes/updateUserInfo')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,8 +37,8 @@ app.use(function(req, res, next) {
 
 
 app.use('/userInfo', userInfoRouter);
-app.use('/setInfo', setInfoRouter);
-
+app.use('/insertUser',insertUserRouter);
+app.use('/updateUserInfo',updateUseInfoRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -13,7 +13,8 @@ connection.connect();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let sql = 'select * from userInfo';
+  var id = req.query.id
+  let sql = 'select * from userInfo where id = ' + id;
   connection.query(sql,function(err,rows,fields){
     console.log(rows);
     if (err){
@@ -24,7 +25,7 @@ router.get('/', function(req, res, next) {
       console.log(data);
       var result = {
         "status": "200",
-        "msg": "获取成功",
+        "msg": "获取成功"
       };
       result.list = data
       res.send(JSON.parse(JSON.stringify(result)));
