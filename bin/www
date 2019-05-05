@@ -7,7 +7,27 @@
 var app = require('../app');
 var debug = require('debug')('nodelearn:server');
 var http = require('http');
+var https = require('https')
+var fs = require("fs");
 
+// var getkey = fs.readFile("bin/2_www.num12138.top.key",function(err,data){
+//   if (err) {
+//     throw err;
+//   }
+//   // 读取文件成功
+//   console.log(data);
+// })
+// var getcert = fs.readFile("bin/1_www.num12138.top_bundle.crt",function(err,data){
+//   if (err) {
+//     throw err;
+//   }
+//   // 读取文件成功
+//   console.log(data);
+// })
+// var httpsOption = {
+//   key : getkey,
+//   cert: getcert
+// }
 /**
  * Get port from environment and store in Express.
  */
@@ -20,7 +40,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
+// var server = https.createServer(httpsOption, app);
 /**
  * Listen on provided port, on all network interfaces.
  */

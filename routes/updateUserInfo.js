@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
           "status": "200",
           "msg": "设置昵称成功"
         };
-        res.send(resultdata)
+        res.send(resultdata);
       }
     })
   }else if(item['sign'] != undefined){

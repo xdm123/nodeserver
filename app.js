@@ -9,14 +9,16 @@ var app = express();
 //中间件处理post请求
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 
 //cors处理跨域请求
 app.use(cors());
 
 var userInfoRouter = require('./routes/userInfo');
 var insertUserRouter = require('./routes/insertUser');
-var updateUseInfoRouter = require('./routes/updateUserInfo')
+var updateUseInfoRouter = require('./routes/updateUserInfo');
+var saveuserinfoRouter = require('./routes/pc/saveuserinfo');
+var getheadimgRouter = require('./routes/pc/getheadimg')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,7 +40,9 @@ app.use(function(req, res, next) {
 
 app.use('/userInfo', userInfoRouter);
 app.use('/insertUser',insertUserRouter);
-app.use('/updateUserInfo',updateUseInfoRouter)
+app.use('/updateUserInfo',updateUseInfoRouter);
+app.use('/saveuserinfo',saveuserinfoRouter);
+app.use('/sendheadimg',getheadimgRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

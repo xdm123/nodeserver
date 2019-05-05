@@ -39,15 +39,15 @@ router.post('/', function(req, res, next) {
             res.send(resultsend);
           }else{
             console.log(result);
-            //创建用户成功，想userInfo表中插入保存用户个人信息的数据
-            var usersql = 'insert into userInfo (id,name,sign) values ('+account+',"","")'
+            //创建用户成功，向userInfo表中插入保存用户个人信息的数据
+            var usersql = 'insert into userInfo (id,name,sex,age,address,object,fun,sentence,headimg) values ('+account+',"未设置昵称","男","18","未设置地址","未设置职业","未设置兴趣爱好","未设置喜欢的句子","http://www.num12138.top:3000/images/head.jpg")'
             connection.query(usersql,function(err,result){
               if(err){
                 throw err
                 res.send('创建用户信息失败');
               }else{
                 var resultsend = {
-                  "status": "200",
+                  "status": "100",
                   "msg": "创建用户成功",
                 };
                 res.send(resultsend);
