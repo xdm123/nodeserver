@@ -19,7 +19,8 @@ var insertUserRouter = require('./routes/insertUser');
 var updateUseInfoRouter = require('./routes/updateUserInfo');
 var saveuserinfoRouter = require('./routes/pc/saveuserinfo');
 var getheadimgRouter = require('./routes/pc/getheadimg');
-var savefeelRouter = require('./routes/pc/savefeel')
+var savefeelRouter = require('./routes/pc/savefeel');
+var getfeelRouter = require('./routes/pc/getfeellist');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,7 +45,8 @@ app.use('/insertUser',insertUserRouter);
 app.use('/updateUserInfo',updateUseInfoRouter);
 app.use('/saveuserinfo',saveuserinfoRouter);
 app.use('/sendheadimg',getheadimgRouter);
-app.use('/savefeel',savefeelRouter)
+app.use('/savefeel',savefeelRouter);
+app.use('/getfeel',getfeelRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
