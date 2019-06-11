@@ -5,15 +5,14 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: '139.199.111.86',
   user: 'root',
-  password : '123456789',
-  database : 'user'
+  password : '1234%^&**.0',
+  database : 'mydata'
 });
 connection.connect();
 
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
-  
   // 获取参数
   var query = req.body;
   console.log(query);

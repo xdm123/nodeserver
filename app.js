@@ -46,7 +46,7 @@ app.use('/updateUserInfo',updateUseInfoRouter);
 app.use('/saveuserinfo',saveuserinfoRouter);
 app.use('/sendheadimg',getheadimgRouter);
 app.use('/savefeel',savefeelRouter);
-app.use('/getfeel',getfeelRouter)
+app.use('/getfeel',getfeelRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
